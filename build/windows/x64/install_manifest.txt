@@ -1,0 +1,13 @@
+C:/Users/GMT/Documents/chart_sample/build/windows/x64/runner/Debug/data/icudtl.dat
+C:/Users/GMT/Documents/chart_sample/build/windows/x64/runner/Debug/flutter_windows.dll
+C:/Users/GMT/Documents/chart_sample/build/windows/x64/runner/Debug/data/flutter_assets/AssetManifest.bin
+C:/Users/GMT/Documents/chart_sample/build/windows/x64/runner/Debug/data/flutter_assets/AssetManifest.json
+C:/Users/GMT/Documents/chart_sample/build/windows/x64/runner/Debug/data/flutter_assets/FontManifest.json
+C:/Users/GMT/Documents/chart_sample/build/windows/x64/runner/Debug/data/flutter_assets/fonts/MaterialIcons-Regular.otf
+C:/Users/GMT/Documents/chart_sample/build/windows/x64/runner/Debug/data/flutter_assets/kernel_blob.bin
+C:/Users/GMT/Documents/chart_sample/build/windows/x64/runner/Debug/data/flutter_assets/lib/assets/cmp_c.txt
+C:/Users/GMT/Documents/chart_sample/build/windows/x64/runner/Debug/data/flutter_assets/lib/assets/Fiber2_1550.txt
+C:/Users/GMT/Documents/chart_sample/build/windows/x64/runner/Debug/data/flutter_assets/lib/assets/sample1310_lowDR1.txt
+C:/Users/GMT/Documents/chart_sample/build/windows/x64/runner/Debug/data/flutter_assets/NOTICES.Z
+C:/Users/GMT/Documents/chart_sample/build/windows/x64/runner/Debug/data/flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf
+C:/Users/GMT/Documents/chart_sample/build/windows/x64/runner/Debug/data/flutter_assets/shaders/ink_sparkle.frag
