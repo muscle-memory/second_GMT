@@ -159,13 +159,13 @@
     },
     {
       "name": "syncfusion_flutter_charts",
-      "rootUri": "file:///C:/Users/GMT/AppData/Local/Pub/Cache/hosted/pub.dev/syncfusion_flutter_charts-26.2.10",
+      "rootUri": "file:///C:/Users/GMT/AppData/Local/Pub/Cache/hosted/pub.dev/syncfusion_flutter_charts-26.2.11",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
     {
       "name": "syncfusion_flutter_core",
-      "rootUri": "file:///C:/Users/GMT/AppData/Local/Pub/Cache/hosted/pub.dev/syncfusion_flutter_core-26.2.10",
+      "rootUri": "file:///C:/Users/GMT/AppData/Local/Pub/Cache/hosted/pub.dev/syncfusion_flutter_core-26.2.11",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -200,7 +200,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-08-29T08:09:49.620621Z",
+  "generated": "2024-08-30T01:48:00.708750Z",
   "generator": "pub",
   "generatorVersion": "3.5.0",
   "flutterRoot": "file:///C:/Users/GMT/Documents/flutter_windows_3.22.3-stable/flutter",

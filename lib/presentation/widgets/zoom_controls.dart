@@ -3,15 +3,8 @@ import 'package:flutter/material.dart';
 
 class ZoomControls extends StatefulWidget {
   final TransformationController controller;
-  final ValueChanged<bool> onTouchChange;
-  final bool isHandlingTouches;
 
-  const ZoomControls({
-    super.key,
-    required this.controller,
-    required this.onTouchChange,
-    required this.isHandlingTouches,
-  });
+  const ZoomControls({super.key, required this.controller});
 
   @override
   ZoomControlsState createState() => ZoomControlsState();
@@ -34,10 +27,6 @@ class ZoomControlsState extends State<ZoomControls> {
     });
   }
 
-  void _toggleHandleTouches() {
-    widget.onTouchChange(!widget.isHandlingTouches);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -52,12 +41,6 @@ class ZoomControlsState extends State<ZoomControls> {
           onPressed: _zoomOut,
           backgroundColor: Colors.blue,
           child: const Icon(Icons.zoom_out),
-        ),
-        const SizedBox(height: 10),
-        FloatingActionButton(
-          onPressed: _toggleHandleTouches,
-          backgroundColor: Colors.blue,
-          child: const Icon(Icons.info),
         ),
       ],
     );

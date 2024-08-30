@@ -5,7 +5,7 @@ import 'package:chart_sample/domain/models/chart_data.dart';
 import 'package:chart_sample/presentation/widgets/zoom_controls.dart';
 import 'package:chart_sample/presentation/widgets/title_widgets.dart';
 
-class LineChartWithZoom extends StatefulWidget {
+class LineChartWithZoom extends StatelessWidget {
   final ChartData chartData;
   final TransformationController transformationController;
 
@@ -14,19 +14,6 @@ class LineChartWithZoom extends StatefulWidget {
     required this.chartData,
     required this.transformationController,
   });
-
-  @override
-  _LineChartWithZoomState createState() => _LineChartWithZoomState();
-}
-
-class _LineChartWithZoomState extends State<LineChartWithZoom> {
-  bool handleBuiltInTouches = false;
-
-  void updateHandleBuiltInTouches(bool value) {
-    setState(() {
-      handleBuiltInTouches = value;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +25,7 @@ class _LineChartWithZoomState extends State<LineChartWithZoom> {
             Positioned(
               right: 20,
               top: 20,
-              child: ZoomControls(
-                controller: widget.transformationController,
-                onTouchChange: updateHandleBuiltInTouches,
-                isHandlingTouches: handleBuiltInTouches,
-              ),
+              child: ZoomControls(controller: transformationController),
             ),
           ],
         );
@@ -54,7 +37,7 @@ class _LineChartWithZoomState extends State<LineChartWithZoom> {
     return InteractiveViewer(
       panEnabled: true,
       scaleEnabled: true,
-      transformationController: widget.transformationController,
+      transformationController: transformationController,
       minScale: 1.0,
       maxScale: 3.0,
       child: SizedBox(
@@ -69,12 +52,12 @@ class _LineChartWithZoomState extends State<LineChartWithZoom> {
     return LineChartData(
       lineTouchData: LineTouchData(
         enabled: true,
-        handleBuiltInTouches: handleBuiltInTouches,
+        handleBuiltInTouches: false
       ),
       lineBarsData: [
         LineChartBarData(
           color: AppColors.contentColorBlack,
-          spots: widget.chartData.spots,
+          spots: chartData.spots,
           isCurved: true,
           isStrokeCapRound: true,
           barWidth: 0.5,
@@ -82,10 +65,10 @@ class _LineChartWithZoomState extends State<LineChartWithZoom> {
           dotData: const FlDotData(show: false),
         ),
       ],
-      minX: widget.chartData.minX,
-      maxX: widget.chartData.maxX,
-      minY: widget.chartData.minY,
-      maxY: widget.chartData.maxY,
+      minX: chartData.minX,
+      maxX: chartData.maxX,
+      minY: chartData.minY,
+      maxY: chartData.maxY,
       titlesData: _buildTitlesData(constraints.maxWidth),
       gridData: _buildGridData(),
       borderData: FlBorderData(
@@ -103,8 +86,7 @@ class _LineChartWithZoomState extends State<LineChartWithZoom> {
       leftTitles: AxisTitles(
         sideTitles: SideTitles(
           showTitles: true,
-          getTitlesWidget: (value, meta) =>
-              leftTitleWidgets(value, meta, chartWidth),
+          getTitlesWidget: (value, meta) => leftTitleWidgets(value, meta, chartWidth),
           reservedSize: 50,
         ),
         drawBelowEverything: true,
@@ -112,8 +94,7 @@ class _LineChartWithZoomState extends State<LineChartWithZoom> {
       bottomTitles: AxisTitles(
         sideTitles: SideTitles(
           showTitles: true,
-          getTitlesWidget: (value, meta) =>
-              bottomTitleWidgets(value, meta, chartWidth),
+          getTitlesWidget: (value, meta) => bottomTitleWidgets(value, meta, chartWidth),
           reservedSize: 50,
           interval: 10,
         ),
@@ -148,3 +129,4 @@ class _LineChartWithZoomState extends State<LineChartWithZoom> {
     );
   }
 }
+
