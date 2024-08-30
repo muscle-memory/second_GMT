@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 class ZoomControls extends StatefulWidget {
   final TransformationController controller;
 
-  const ZoomControls({super.key, required this.controller});
+  const ZoomControls({
+    super.key,
+    required this.controller,
+  });
 
   @override
   ZoomControlsState createState() => ZoomControlsState();
@@ -27,6 +30,12 @@ class ZoomControlsState extends State<ZoomControls> {
     });
   }
 
+  void _information() {
+    setState(() {
+    });
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,11 +45,17 @@ class ZoomControlsState extends State<ZoomControls> {
           backgroundColor: Colors.blue,
           child: const Icon(Icons.zoom_in),
         ),
-        const SizedBox(height: 10),
+        const SizedBox(height: 20),
         FloatingActionButton(
           onPressed: _zoomOut,
           backgroundColor: Colors.blue,
           child: const Icon(Icons.zoom_out),
+        ),
+        const SizedBox(height: 20),
+        FloatingActionButton(
+          onPressed: _information,
+          backgroundColor: Colors.blue,
+          child: const Icon(Icons.assistant_photo),
         ),
       ],
     );

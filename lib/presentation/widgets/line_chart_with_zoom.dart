@@ -1,33 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:chart_sample/presentation/resources/app_resources.dart';
+import 'package:chart_sample/presentation/resources/app_colors.dart';
 import 'package:chart_sample/domain/models/chart_data.dart';
 import 'package:chart_sample/presentation/widgets/zoom_controls.dart';
 import 'package:chart_sample/presentation/widgets/title_widgets.dart';
 
 class LineChartWithZoom extends StatelessWidget {
   final ChartData chartData;
-  final TransformationController transformationController;
 
   const LineChartWithZoom({
     super.key,
     required this.chartData,
-    required this.transformationController,
   });
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        return Stack(
-          children: [
-            _buildInteractiveChart(constraints),
-            Positioned(
-              right: 20,
-              top: 20,
-              child: ZoomControls(controller: transformationController),
-            ),
-          ],
+        return Center(
+          child: _buildInteractiveChart(constraints), // 차트 위젯
         );
       },
     );
@@ -37,7 +28,6 @@ class LineChartWithZoom extends StatelessWidget {
     return InteractiveViewer(
       panEnabled: true,
       scaleEnabled: true,
-      transformationController: transformationController,
       minScale: 1.0,
       maxScale: 3.0,
       child: SizedBox(
@@ -52,11 +42,11 @@ class LineChartWithZoom extends StatelessWidget {
     return LineChartData(
       lineTouchData: LineTouchData(
         enabled: true,
-        handleBuiltInTouches: false
+        handleBuiltInTouches: false,
       ),
       lineBarsData: [
         LineChartBarData(
-          color: AppColors.contentColorBlack,
+          color: AppColors.contentColorred,
           spots: chartData.spots,
           isCurved: true,
           isStrokeCapRound: true,
@@ -88,6 +78,7 @@ class LineChartWithZoom extends StatelessWidget {
           showTitles: true,
           getTitlesWidget: (value, meta) => leftTitleWidgets(value, meta, chartWidth),
           reservedSize: 50,
+          interval: 5,
         ),
         drawBelowEverything: true,
       ),
@@ -96,7 +87,7 @@ class LineChartWithZoom extends StatelessWidget {
           showTitles: true,
           getTitlesWidget: (value, meta) => bottomTitleWidgets(value, meta, chartWidth),
           reservedSize: 50,
-          interval: 10,
+          interval: 0.5,
         ),
         drawBelowEverything: true,
       ),
@@ -115,9 +106,9 @@ class LineChartWithZoom extends StatelessWidget {
       drawHorizontalLine: true,
       drawVerticalLine: true,
       horizontalInterval: 10,
-      verticalInterval: 10,
+      verticalInterval: 1,
       checkToShowHorizontalLine: (value) => value.toInt() % 10 == 0,
-      checkToShowVerticalLine: (value) => value.toInt() % 10 == 0,
+      checkToShowVerticalLine: (value) => value.toInt() % 1 == 0,
       getDrawingHorizontalLine: (_) => FlLine(
         color: AppColors.contentColorBlue.withOpacity(1),
         strokeWidth: 0.8,

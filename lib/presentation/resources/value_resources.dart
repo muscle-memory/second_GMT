@@ -10,7 +10,6 @@ Future<List<Map<String, double>>> loadTraceData() async {
     List<String> values = line.split(RegExp(r'[,\s]+')).map((value) =>
         value.trim()).toList();
 
-    // x와 y 값이 존재할 경우
     if (values.length == 2) {
       double? x = double.tryParse(values[0]);
       double? y = double.tryParse(values[1]);

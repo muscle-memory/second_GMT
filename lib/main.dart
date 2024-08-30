@@ -2,20 +2,23 @@ import 'package:chart_sample/presentation/screens/line_chart_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final TransformationController _transformationController = TransformationController();
+
+   MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Chart Example',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LineChartScreen(),
+      home: LineChartScreen(transformationController: _transformationController),
     );
   }
 }

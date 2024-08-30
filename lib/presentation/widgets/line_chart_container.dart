@@ -20,9 +20,9 @@ class LineChartContainerState extends State<LineChartContainer> {
     _chartDataFuture = loadTraceData().then((traceData) {
       return ChartData(
         minX: 0,
-        maxX: 11,
+        maxX: 10.7,
         minY: 0,
-        maxY: 44,
+        maxY: 47,
         traceData: traceData,
       );
     });
@@ -41,7 +41,6 @@ class LineChartContainerState extends State<LineChartContainer> {
         final chartData = snapshot.data!;
         return LineChartWithZoom(
           chartData: chartData,
-          transformationController: _transformationController,
         );
       },
     );
