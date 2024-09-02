@@ -1,16 +1,17 @@
+import 'package:chart_sample/presentation/widgets/title_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:chart_sample/presentation/resources/app_colors.dart';
 import 'package:chart_sample/domain/models/chart_data.dart';
-import 'package:chart_sample/presentation/widgets/zoom_controls.dart';
-import 'package:chart_sample/presentation/widgets/title_widgets.dart';
 
 class LineChartWithZoom extends StatelessWidget {
   final ChartData chartData;
+  final TransformationController transformationController;
 
   const LineChartWithZoom({
     super.key,
     required this.chartData,
+    required this.transformationController,
   });
 
   @override
@@ -18,23 +19,20 @@ class LineChartWithZoom extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Center(
-          child: _buildInteractiveChart(constraints), // 차트 위젯
+          child: InteractiveViewer(
+            transformationController: transformationController,
+            panEnabled: true,
+            scaleEnabled: true,
+            minScale: 1.0,
+            maxScale: 3.0,
+            child: SizedBox(
+              width: constraints.maxWidth,
+              height: constraints.maxHeight,
+              child: LineChart(_buildLineChartData(constraints)),
+            ),
+          ),
         );
       },
-    );
-  }
-
-  Widget _buildInteractiveChart(BoxConstraints constraints) {
-    return InteractiveViewer(
-      panEnabled: true,
-      scaleEnabled: true,
-      minScale: 1.0,
-      maxScale: 3.0,
-      child: SizedBox(
-        width: constraints.maxWidth,
-        height: constraints.maxHeight,
-        child: LineChart(_buildLineChartData(constraints)),
-      ),
     );
   }
 
@@ -120,4 +118,3 @@ class LineChartWithZoom extends StatelessWidget {
     );
   }
 }
-

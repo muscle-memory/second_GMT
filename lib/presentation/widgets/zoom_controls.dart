@@ -18,23 +18,24 @@ class ZoomControlsState extends State<ZoomControls> {
 
   void _zoomIn() {
     setState(() {
-      _scale = min(_scale * 1.2, 2.5);
-      widget.controller.value = Matrix4.diagonal3Values(_scale, _scale, 1.0);
+      _scale = min(_scale * 1.2, 3.0);
+      widget.controller.value = Matrix4.identity()..scale(_scale);
     });
   }
 
   void _zoomOut() {
     setState(() {
       _scale = max(_scale / 1.2, 1.0);
-      widget.controller.value = Matrix4.diagonal3Values(_scale, _scale, 1.0);
+      widget.controller.value = Matrix4.identity()..scale(_scale);
     });
   }
 
-  void _information() {
+  void _resetZoom() {
     setState(() {
+      _scale = 1.0;
+      widget.controller.value = Matrix4.identity();
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -53,9 +54,9 @@ class ZoomControlsState extends State<ZoomControls> {
         ),
         const SizedBox(height: 20),
         FloatingActionButton(
-          onPressed: _information,
+          onPressed: _resetZoom,
           backgroundColor: Colors.blue,
-          child: const Icon(Icons.assistant_photo),
+          child: const Icon(Icons.flag),
         ),
       ],
     );

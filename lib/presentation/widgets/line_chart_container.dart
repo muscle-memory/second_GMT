@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:chart_sample/domain/models/chart_data.dart';
-import 'package:chart_sample/presentation/widgets/line_chart_with_zoom.dart';
-import '../resources/value_resources.dart';
+import 'package:chart_sample/presentation/screens/line_chart_screen.dart';
+import 'package:chart_sample/presentation/resources/value_resources.dart';
 
 class LineChartContainer extends StatefulWidget {
   const LineChartContainer({super.key});
@@ -39,8 +39,9 @@ class LineChartContainerState extends State<LineChartContainer> {
           return Center(child: Text('Error: ${snapshot.error}'));
         }
         final chartData = snapshot.data!;
-        return LineChartWithZoom(
+        return LineChartScreen(
           chartData: chartData,
+          transformationController: _transformationController,
         );
       },
     );

@@ -1,5 +1,6 @@
-import 'package:chart_sample/presentation/screens/line_chart_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:chart_sample/presentation/screens/line_chart_screen.dart';
+import 'package:chart_sample/presentation/widgets/line_chart_container.dart';
 
 void main() {
   runApp(MyApp());
@@ -8,7 +9,7 @@ void main() {
 class MyApp extends StatelessWidget {
   final TransformationController _transformationController = TransformationController();
 
-   MyApp({super.key});
+  MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LineChartScreen(transformationController: _transformationController),
+      home: LineChartContainer(),  // LineChartContainer 사용
     );
   }
 }

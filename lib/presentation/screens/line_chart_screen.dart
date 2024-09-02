@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:chart_sample/presentation/widgets/line_chart_sample.dart';
-
+import 'package:chart_sample/presentation/widgets/line_chart_with_zoom.dart';
 import '../widgets/zoom_controls.dart';
+import 'package:chart_sample/domain/models/chart_data.dart';
 
 class LineChartScreen extends StatelessWidget {
   final TransformationController transformationController;
+  final ChartData chartData;
 
   const LineChartScreen({
     super.key,
     required this.transformationController,
+    required this.chartData,
   });
 
   @override
@@ -31,21 +33,17 @@ class LineChartScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
-                  child: InteractiveViewer(
+                  child: LineChartWithZoom(
+                    chartData: chartData,
                     transformationController: transformationController,
-                    child: LineChartSample(),
                   ),
                 ),
-                SizedBox(
-                  width: 150,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InteractiveViewer(
-                        child: ZoomControls(controller: transformationController),
-                      ),
-                    ],
-                  ),
+                const SizedBox(width: 50),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ZoomControls(controller: transformationController),
+                  ],
                 )
               ],
             ),
