@@ -3,10 +3,16 @@ import 'package:flutter/material.dart';
 
 class ZoomControls extends StatefulWidget {
   final TransformationController controller;
+  final VoidCallback onMarkerPressed;
+  final ValueChanged<bool> onTouchChange;
+  final bool isHandlingTouches;
 
   const ZoomControls({
     super.key,
     required this.controller,
+    required this.onMarkerPressed,
+    required this.onTouchChange,
+    required this.isHandlingTouches,
   });
 
   @override
@@ -30,11 +36,9 @@ class ZoomControlsState extends State<ZoomControls> {
     });
   }
 
-  void _resetZoom() {
-    setState(() {
-      _scale = 1.0;
-      widget.controller.value = Matrix4.identity();
-    });
+  void _marker() {
+    widget.onMarkerPressed();
+    widget.onTouchChange(!widget.isHandlingTouches);
   }
 
   @override
@@ -54,7 +58,7 @@ class ZoomControlsState extends State<ZoomControls> {
         ),
         const SizedBox(height: 20),
         FloatingActionButton(
-          onPressed: _resetZoom,
+          onPressed: _marker,
           backgroundColor: Colors.blue,
           child: const Icon(Icons.flag),
         ),
