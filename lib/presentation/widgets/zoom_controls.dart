@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 
 class ZoomControls extends StatefulWidget {
   final TransformationController controller;
-  final VoidCallback onMarkerPressed;
-  final ValueChanged<bool> onTouchChange;
-  final bool isHandlingTouches;
+  final Function(Offset, Size) onMarkerPressed;
+  final Offset transformedPosition;
+  final Size containerSize;
 
   const ZoomControls({
     super.key,
     required this.controller,
     required this.onMarkerPressed,
-    required this.onTouchChange,
-    required this.isHandlingTouches,
+    required this.transformedPosition,
+    required this.containerSize,
   });
 
   @override
@@ -26,6 +26,8 @@ class ZoomControlsState extends State<ZoomControls> {
     setState(() {
       _scale = min(_scale * 1.2, 3.0);
       widget.controller.value = Matrix4.identity()..scale(_scale);
+
+      print('ZOOM_IN => $_scale');
     });
   }
 
@@ -33,12 +35,13 @@ class ZoomControlsState extends State<ZoomControls> {
     setState(() {
       _scale = max(_scale / 1.2, 1.0);
       widget.controller.value = Matrix4.identity()..scale(_scale);
+
+      print('ZOOM_OUT => $_scale');
     });
   }
 
   void _marker() {
-    widget.onMarkerPressed();
-    widget.onTouchChange(!widget.isHandlingTouches);
+    widget.onMarkerPressed(widget.transformedPosition, widget.containerSize);
   }
 
   @override

@@ -98,12 +98,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "intl",
-      "rootUri": "file:///C:/Users/GMT/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.19.0",
-      "packageUri": "lib/",
-      "languageVersion": "3.0"
-    },
-    {
       "name": "leak_tracker",
       "rootUri": "file:///C:/Users/GMT/AppData/Local/Pub/Cache/hosted/pub.dev/leak_tracker-10.0.5",
       "packageUri": "lib/",
@@ -194,18 +188,6 @@
       "languageVersion": "2.18"
     },
     {
-      "name": "syncfusion_flutter_charts",
-      "rootUri": "file:///C:/Users/GMT/AppData/Local/Pub/Cache/hosted/pub.dev/syncfusion_flutter_charts-26.2.11",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
-      "name": "syncfusion_flutter_core",
-      "rootUri": "file:///C:/Users/GMT/AppData/Local/Pub/Cache/hosted/pub.dev/syncfusion_flutter_core-26.2.11",
-      "packageUri": "lib/",
-      "languageVersion": "2.17"
-    },
-    {
       "name": "term_glyph",
       "rootUri": "file:///C:/Users/GMT/AppData/Local/Pub/Cache/hosted/pub.dev/term_glyph-1.2.1",
       "packageUri": "lib/",
@@ -272,7 +254,7 @@
       "languageVersion": "3.5"
     }
   ],
-  "generated": "2024-09-03T02:21:56.212015Z",
+  "generated": "2024-09-11T08:47:54.883443Z",
   "generator": "pub",
   "generatorVersion": "3.5.0",
   "flutterRoot": "file:///C:/Users/GMT/Documents/flutter_windows_3.22.3-stable/flutter",

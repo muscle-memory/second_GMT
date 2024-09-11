@@ -37,7 +37,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   fl_chart: ^0.68.0
-  syncfusion_flutter_charts: ^26.2.10
   flutter_svg: ^2.0.10+1
 
 dev_dependencies:
@@ -57,9 +56,12 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   assets:
-    - lib/assets/sample1310_lowDR1.txt
-    - lib/assets/Fiber2_1550.txt
     - lib/assets/cmp_c.txt
+    - lib/assets/chart.svg
+    - lib/assets/Fiber2_1310.txt
+    - lib/assets/Fiber2_1550.txt
+    - lib/assets/chart2.svg
+    - lib/assets/chart2.txt
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

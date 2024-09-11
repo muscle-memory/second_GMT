@@ -6,7 +6,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final TransformationController _transformationController = TransformationController();
 
   MyApp({super.key});
 
